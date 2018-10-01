@@ -52,17 +52,64 @@ public func == (_ lhs: Graph, rhs: Graph) -> Bool {
     return lhs.tasks == rhs.tasks
 }
 
-func depthFirstSearch(_ graph: Graph, source: TaskNode) -> [String] {
-    var nodesExplored = [source.name]
-    source.isVisitted = true
+func depthFirstSearch(_ graph: Graph, source: TaskNode) -> [TaskNode] {
     
+    var nodesExplored = [source]
+    var dictionary: Dictionary<String, [TaskNode]> = Dictionary<String, [TaskNode]>()
+    source.isVisitted = true
+
     for edge in source.successors {
         if !edge.neighbor.isVisitted {
             nodesExplored = nodesExplored + depthFirstSearch(graph, source: edge.neighbor)
         }
     }
-    return nodesExplored as! [String]
+    
+    return nodesExplored
 }
+
+var allPaths = [[TaskNode]]()
+var paths = [TaskNode]()
+
+
+var isVisitteds = Dictionary<String, Bool>()
+
+
+func getPath(_ graph: Graph, source: TaskNode) {
+    
+    paths.append(source)
+    source.isVisitted = true
+    isVisitteds[source.name!] = true
+    
+    var counter = 0
+    for edge in source.successors {
+        counter = counter + 1
+        if !edge.neighbor.isVisitted && counter == 1  {
+            getPath(graph, source: edge.neighbor)
+        }
+        else {
+            
+            if !edge.neighbor.isVisitted {
+                getPath(graph, source: edge.neighbor)
+            }
+        }
+    }
+    
+    source.isVisitted = false
+    if source.successors.count == 0 {
+        allPaths.append(paths)
+    }
+    else {
+        source.isVisitted = false
+        for edge in source.successors {
+            edge.neighbor.isVisitted = false
+        }
+    }
+    
+    paths.popLast()
+    
+}
+
+
 
 let taskA = TaskNode(name: "A", duration: 2)
 let taskB = TaskNode(name: "B", duration: 3)
@@ -89,11 +136,17 @@ graph.addEdge(taskB, neighbor: taskC)
 graph.addEdge(taskB, neighbor: taskD)
 graph.addEdge(taskC, neighbor: taskE)
 graph.addEdge(taskD, neighbor: taskE)
-graph.addEdge(taskE, neighbor: taskG)
 graph.addEdge(taskE, neighbor: taskF)
+graph.addEdge(taskE, neighbor: taskG)
 
 let edges = taskD.successors
 
-let result = depthFirstSearch(graph, source: taskA)
+//let result = depthFirstSearch(graph, source: taskA)
+//
+//for node in result {
+//    print(node.name)
+//}
 
-print(result)
+//print(result)
+getPath(graph, source: taskA)
+print("hi...")
