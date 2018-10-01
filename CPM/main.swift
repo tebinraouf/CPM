@@ -7,51 +7,6 @@
 //
 
 
-public class TaskNode: Equatable {
-    var name: String?
-    var duration: Int?
-    var successors: [Edge]
-    var isVisitted: Bool
-
-    init(name: String?, duration: Int?) {
-        self.name = name
-        self.duration = duration
-        successors = []
-        isVisitted = false
-    }
-}
-public func == (_ lhs: TaskNode, rhs: TaskNode) -> Bool {
-    return lhs.name == rhs.name && lhs.successors == rhs.successors
-}
-public class Edge: Equatable {
-    public var neighbor: TaskNode
-    
-    public init(_ neighbor: TaskNode) {
-        self.neighbor = neighbor
-    }
-}
-
-public func == (_ lhs: Edge, rhs: Edge) -> Bool {
-    return lhs.neighbor == rhs.neighbor
-}
-public class Graph: Equatable {
-    public var tasks: [TaskNode]
-    
-    public init() {
-        self.tasks = []
-    }
-    public func addTask(_ task: TaskNode) {
-        tasks.append(task)
-    }
-    public func addEdge(_ source: TaskNode, neighbor: TaskNode) {
-        let edge = Edge(neighbor)
-        source.successors.append(edge)
-    }
-}
-public func == (_ lhs: Graph, rhs: Graph) -> Bool {
-    return lhs.tasks == rhs.tasks
-}
-
 var allPaths = [[TaskNode]]()
 var paths = [TaskNode]()
 
