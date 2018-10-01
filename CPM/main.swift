@@ -55,20 +55,13 @@ public func == (_ lhs: Graph, rhs: Graph) -> Bool {
 var allPaths = [[TaskNode]]()
 var paths = [TaskNode]()
 
-func getPath(_ graph: Graph, source: TaskNode) {
+func getPaths(_ graph: Graph, source: TaskNode) {
     paths.append(source)
     source.isVisitted = true
     
-    var counter = 0
     for edge in source.successors {
-        counter = counter + 1
-        if !edge.neighbor.isVisitted && counter == 1  {
-            getPath(graph, source: edge.neighbor)
-        }
-        else {
-            if !edge.neighbor.isVisitted {
-                getPath(graph, source: edge.neighbor)
-            }
+        if !edge.neighbor.isVisitted  {
+            getPaths(graph, source: edge.neighbor)
         }
     }
     source.isVisitted = false
@@ -81,7 +74,8 @@ func getPath(_ graph: Graph, source: TaskNode) {
             edge.neighbor.isVisitted = false
         }
     }
-    paths.popLast()
+    //pop the last item. Result is unused.
+    let _ = paths.popLast()
 }
 
 
@@ -123,5 +117,5 @@ let edges = taskD.successors
 //}
 
 //print(result)
-getPath(graph, source: taskA)
+getPaths(graph, source: taskA)
 print("hi...")
