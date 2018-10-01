@@ -52,33 +52,12 @@ public func == (_ lhs: Graph, rhs: Graph) -> Bool {
     return lhs.tasks == rhs.tasks
 }
 
-func depthFirstSearch(_ graph: Graph, source: TaskNode) -> [TaskNode] {
-    
-    var nodesExplored = [source]
-    var dictionary: Dictionary<String, [TaskNode]> = Dictionary<String, [TaskNode]>()
-    source.isVisitted = true
-
-    for edge in source.successors {
-        if !edge.neighbor.isVisitted {
-            nodesExplored = nodesExplored + depthFirstSearch(graph, source: edge.neighbor)
-        }
-    }
-    
-    return nodesExplored
-}
-
 var allPaths = [[TaskNode]]()
 var paths = [TaskNode]()
 
-
-var isVisitteds = Dictionary<String, Bool>()
-
-
 func getPath(_ graph: Graph, source: TaskNode) {
-    
     paths.append(source)
     source.isVisitted = true
-    isVisitteds[source.name!] = true
     
     var counter = 0
     for edge in source.successors {
@@ -87,13 +66,11 @@ func getPath(_ graph: Graph, source: TaskNode) {
             getPath(graph, source: edge.neighbor)
         }
         else {
-            
             if !edge.neighbor.isVisitted {
                 getPath(graph, source: edge.neighbor)
             }
         }
     }
-    
     source.isVisitted = false
     if source.successors.count == 0 {
         allPaths.append(paths)
@@ -104,9 +81,7 @@ func getPath(_ graph: Graph, source: TaskNode) {
             edge.neighbor.isVisitted = false
         }
     }
-    
     paths.popLast()
-    
 }
 
 
