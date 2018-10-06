@@ -31,6 +31,7 @@
 		431946A52162C6E0007E3591 /* TaskNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNode.swift; sourceTree = "<group>"; };
 		4320661F215EBE97000E4F04 /* CPM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPM; sourceTree = BUILT_PRODUCTS_DIR; };
 		43206622215EBE97000E4F04 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		43A0A86F21694EA00012D95F /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				431946A12162C684007E3591 /* Graph.swift */,
 				431946A32162C6AE007E3591 /* Edge.swift */,
 				431946A52162C6E0007E3591 /* TaskNode.swift */,
+				43A0A86F21694EA00012D95F /* input.txt */,
 			);
 			path = CPM;
 			sourceTree = "<group>";
