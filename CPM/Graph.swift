@@ -21,6 +21,14 @@ public class Graph: Equatable {
         let edge = Edge(neighbor)
         source.successors.append(edge)
     }
+    public func getTask(by name: String) -> TaskNode? {
+        for task in tasks {
+            if task.name! == name {
+                return task
+            }
+        }
+        return nil
+    }
 }
 public func == (_ lhs: Graph, rhs: Graph) -> Bool {
     return lhs.tasks == rhs.tasks

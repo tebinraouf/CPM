@@ -8,10 +8,10 @@
 import Foundation
 
 class Path {
-    private var allPaths = [[TaskNode]]()
+    public var allPaths = [[TaskNode]]()
     private var paths = [TaskNode]()
     
-    private func getPaths(_ graph: Graph, source: TaskNode) {
+    public func getPaths(_ graph: Graph, source: TaskNode) {
         paths.append(source)
         source.isVisitted = true
         
@@ -107,8 +107,54 @@ class Path {
 //the input
 
 struct FileObject {
-    var header: [String]
-    var rows: [[String]]
+    private var header: [String]
+    private var rows: [[String]]
+    
+    public init(header: [String], rows: [[String]]) {
+        self.header = header
+        self.rows = rows
+    }
+    public func getGraph() -> Graph {
+        let graph = Graph()
+        //Create TaskNode per task and then add to graph.
+        for row in rows {
+            let taskName = row[0]
+            let taskDuration = row[1]
+            let task = TaskNode(name: taskName, duration: Int(taskDuration))
+            graph.addTask(task)
+        }
+        let dictionary = convertRowToDictionary()
+        //for each task in the graph, add the successors
+        for task in graph.tasks {
+            //get the key value pair where the key is the task name, and the value is the successor
+            for (key,value) in dictionary {
+                //The successor is the "value" which is an array. There might be more than on successor.
+                for eachValue in value {
+                    if task.name! == eachValue {
+                        //we don't know the neight use the key to get the name and find it in the graph
+                        graph.addEdge(task, neighbor: graph.getTask(by: key)!)
+                    }
+                }
+            }
+        }
+        return graph
+    }
+    ///Create dictionary for the tasks from "rows". Key: is the task name, Value: is an array of task name
+    ///For example:
+    ///["A", "2", "na"] -> "A": ["na"]
+    ///["B","3","A"] -> "B" : ["A"]
+    ///This is a helper function
+    private func convertRowToDictionary() -> Dictionary<String, [String]>{
+        var dictionary = Dictionary<String, [String]>()
+        for row in rows {
+            var copyRow = row
+            let key = copyRow.removeFirst()
+            //remove the second column, which is the duration.
+            copyRow.removeFirst()
+            dictionary[key] = copyRow
+        }
+        return dictionary
+    }
 }
 func convertToObject(_ rows: [Substring]?) -> FileObject? {
     guard var rows = rows else { return nil}
@@ -137,5 +183,8 @@ func read(file path: String) -> FileObject? {
 }
 
 
-let objects = read(file: "/Users/Tebin/Desktop/CPM/input.txt")
-print(objects)
+let objects = read(file: "/Users/Tebin/Desktop/CPM/input2.txt")
+let graph = objects?.getGraph()
+let path = Path()
+path.getPaths(graph!, source: (graph?.tasks.first)!)
+print(path.allPaths)

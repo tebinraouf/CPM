@@ -14,7 +14,7 @@ import Foundation
     A class that defines an activity.
  
  */
-public class TaskNode: Equatable {
+public class TaskNode: NSObject {
     var name: String?
     var duration: Int?
     var isVisitted: Bool
@@ -59,6 +59,10 @@ public class TaskNode: Equatable {
         self.duration = duration
         successors = []
         isVisitted = false
+    }
+    
+    public override var description: String {
+        return "\(name!)"
     }
 }
 public func == (_ lhs: TaskNode, rhs: TaskNode) -> Bool {
