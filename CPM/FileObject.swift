@@ -73,8 +73,16 @@ class FileObject {
     private func read(file path: String) {
         let fileURL = URL(fileURLWithPath: path)
         do {
-            let content = try String(contentsOf: fileURL, encoding: .utf8)
+            var content = try String(contentsOf: fileURL, encoding: .utf8)
+            let startingCount = content.uppercased().components(separatedBy: "NA").count - 1
+            
+            //If there are two or more tasks with NA for predecessor, then we need a comman starting point with duration 0.
+            if startingCount > 1 {
+                content = content.uppercased().replacingOccurrences(of: "NA", with: "Start")
+                content = content + "Start,0,NA\n"
+            }
             let rows = content.split(separator: "\n")
+            print(rows)
             convertToObject(rows)
         }
         catch {

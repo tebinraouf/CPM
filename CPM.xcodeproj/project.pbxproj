@@ -34,6 +34,7 @@
 		43206622215EBE97000E4F04 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		43A0A86F21694EA00012D95F /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = SOURCE_ROOT; };
 		43F75CF02169B762007F442F /* FileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileObject.swift; sourceTree = "<group>"; };
+		43F75CF22169C70A007F442F /* input3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input3.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 				431946A52162C6E0007E3591 /* TaskNode.swift */,
 				43A0A86F21694EA00012D95F /* input.txt */,
 				43F75CF02169B762007F442F /* FileObject.swift */,
+				43F75CF22169C70A007F442F /* input3.txt */,
 			);
 			path = CPM;
 			sourceTree = "<group>";

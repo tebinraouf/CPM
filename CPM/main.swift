@@ -6,15 +6,37 @@
 //  Copyright © 2018 Tebin. All rights reserved.
 //
 import Foundation
+/*
+ Assumptions
+ 1. First line is the header
+ 2. The input is comma separated
+ 3. The input should be in the following format:
+    TaskName,Duration,Predecessor
+ 4. If there are more than one predecessor, separate them with a comma such as
+    B,2,C,D,E
+ 5. If a task doesn't have any predecessors, it should be labeled NA
+ */
 
-class Path {
-    public var allPaths = [[TaskNode]]()
-    private var paths = [TaskNode]()
+
+class PathGenerator {
+    private var _allPaths = [[TaskNode]]()
+    private var _paths = [TaskNode]()
     
-    
+    public init(_ graph: Graph) {
+        let startTask = graph.getTask(by: "Start")
+        if startTask != nil {
+            getPaths(graph, source: startTask!)
+        } else {
+            //This should be fixed. The first task might not be the start task
+            getPaths(graph, source: graph.tasks.first!)
+        }
+    }
+    public var paths: [[TaskNode]] {
+        return _allPaths
+    }
     ///Search the graph by using Depth Search Algorithm to file all paths.
-    public func getPaths(_ graph: Graph, source: TaskNode) {
-        paths.append(source)
+    private func getPaths(_ graph: Graph, source: TaskNode) {
+        _paths.append(source)
         source.isVisitted = true
         
         for edge in source.successors {
@@ -24,7 +46,7 @@ class Path {
         }
         source.isVisitted = false
         if source.successors.count == 0 {
-            allPaths.append(paths)
+            _allPaths.append(_paths)
         }
         else {
             source.isVisitted = false
@@ -33,8 +55,9 @@ class Path {
             }
         }
         //pop the last item. Result is unused.
-        let _ = paths.popLast()
+        let _ = _paths.popLast()
     }
+    
 }
 
 /*
@@ -43,9 +66,9 @@ class Path {
  3. Use 2 to set other E*, L*
  */
 
-let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input.txt")
+let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input3.txt")
 let graph = fileObject.getGraph()
 
-let path = Path()
-path.getPaths(graph, source: (graph.tasks.first)!)
-print(path.allPaths)
+let pathGenarator = PathGenerator(graph)
+print(pathGenarator.paths)
+

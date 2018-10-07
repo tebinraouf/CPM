@@ -1,4 +1,3 @@
-#Task,dur,preds
 A,3,na
 B,2,A
 C,1,A
