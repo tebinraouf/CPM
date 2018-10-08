@@ -7,70 +7,72 @@
 //
 
 import Foundation
-
-
-
-/**
-    A class that defines an activity.
- 
- */
+/// - Author: Tebin Raouf
+///
+///The class to represent a task in the Critical Path Application
 public class TaskNode: NSObject {
-    var name: String?
-    var duration: Int?
-    var isVisitted: Bool
+    ///The name of the TaskNode
+    public var name: String
     
-    var successors: [Edge]
-    var predecessors: [Edge]
+    ///The duration of the TaskNode
+    public var duration: Int
     
-    public var lateStart: Int? {
-        didSet {
-            self.lateStart = oldValue
-        }
-        willSet {
-            self.earlyStart = newValue
-        }
-    }
-    public var earlyStart: Int? {
-        didSet {
-            self.earlyStart = oldValue
-        }
-        willSet {
-            self.earlyStart = newValue
-        }
-    }
-    public var lastFinish: Int? {
-        didSet {
-            self.lastFinish = oldValue
-        }
-        willSet {
-            self.lastFinish = newValue
-        }
-    }
-    public var earlyFinish: Int? {
-        didSet {
-            self.earlyFinish = oldValue
-        }
-        willSet {
-            self.earlyFinish = newValue
-        }
+    ///Indicate if a TaskNode is visitted in a Graph structure or other linked structures
+    public var isVisitted: Bool
+    
+    ///The TaskNode successors
+    public var successors: [Edge]
+    
+    ///The TaskNode predecessors
+    public var predecessors: [Edge]
+    
+    ///The TaskNode last start
+    public var lateStart: Int
+    
+    ///The TaskNode early start
+    public var earlyStart: Int
+    
+    ///The TaskNode last finish
+    public var lateFinish: Int
+    
+    ///The TaskNode early finish
+    public var earlyFinish: Int
+    
+    
+    ///The description of the task is the name of the task
+    public override var description: String {
+        return name
     }
     
-    init(name: String?, duration: Int?) {
+    ///Initialize a TaskNode
+    ///
+    /// - Parameter name: the name of the TaskNode
+    /// - Parameter duration: the duration of the TaskNode
+    ///
+    ///####Initial Values include:
+    ///1. `successors` = empty
+    ///2. `predecessors` = empty
+    ///3. `isVisitted` = false
+    ///4.  `lateStart`, `lateFinish`, `earlyStart`, `earlyFinish` =  -1
+    public init(name: String, duration: Int) {
         self.name = name
         self.duration = duration
         successors = []
         predecessors = []
         isVisitted = false
-    }
-    
-    public override var description: String {
-        return "\(name!)"
+        lateStart = -1
+        lateFinish = -1
+        earlyStart = -1
+        earlyFinish = -1
     }
 }
+///Compare if two TaskNode (TaskNode objects) are equal
+///
+///TaskNode A is equal to TaskNode B is their names, successors, and predecessors are equal
+///
+/// - Parameter lhs: TaskNode object one
+/// - Parameter rhs: TaskNode Object two
+/// - Returns: true if the two edges are equal; false otherwise
 public func == (_ lhs: TaskNode, rhs: TaskNode) -> Bool {
-    return lhs.name == rhs.name && lhs.successors == rhs.successors
-}
-
-extension TaskNode {
-    
+    return lhs.name == rhs.name && lhs.successors == rhs.successors && lhs.predecessors == rhs.predecessors
 }

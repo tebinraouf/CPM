@@ -23,7 +23,7 @@ public class Graph: Equatable {
     }
     public func getTask(by name: String) -> TaskNode? {
         for task in tasks {
-            if task.name! == name {
+            if task.name == name {
                 return task
             }
         }

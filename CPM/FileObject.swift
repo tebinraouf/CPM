@@ -1,3 +1,4 @@
+//
 //  FileObject.swift
 //  CPM
 //
@@ -53,7 +54,7 @@ public class FileObject {
         for row in rows {
             let taskName = row[0]
             let taskDuration = row[1]
-            let task = TaskNode(name: taskName, duration: Int(taskDuration))
+            let task = TaskNode(name: taskName, duration: Int(taskDuration) ?? -1)
             graph.addTask(task)
         }
         let dictionary = convertRowToDictionary()
@@ -63,7 +64,7 @@ public class FileObject {
             for (key,value) in dictionary {
                 //The successor is the "value" which is an array. There might be more than on successor.
                 for eachValue in value {
-                    if task.name! == eachValue {
+                    if task.name == eachValue {
                         //we don't know the neight use the key to get the name and find it in the graph
                         graph.addSuccessorEdge(task, neighbor: graph.getTask(by: key)!)
                     }

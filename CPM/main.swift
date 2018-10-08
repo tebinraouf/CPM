@@ -71,4 +71,3 @@ let graph = fileObject.getGraph()
 
 let pathGenarator = PathGenerator(graph)
 print(pathGenarator.paths)
-

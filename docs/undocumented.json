@@ -1,34 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Edge.swift",
-      "line": 11,
-      "symbol": "Edge",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Edge.swift",
-      "line": 12,
-      "symbol": "Edge.neighbor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Edge.swift",
-      "line": 14,
-      "symbol": "Edge.init(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Edge.swift",
-      "line": 19,
-      "symbol": "==(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/Tebin/Desktop/CPM/CPM/Graph.swift",
       "line": 11,
       "symbol": "Graph",
@@ -80,48 +52,6 @@
     {
       "file": "/Users/Tebin/Desktop/CPM/CPM/Graph.swift",
       "line": 39,
-      "symbol": "==(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 25,
-      "symbol": "TaskNode.lateStart",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 33,
-      "symbol": "TaskNode.earlyStart",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 41,
-      "symbol": "TaskNode.lastFinish",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 49,
-      "symbol": "TaskNode.earlyFinish",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 66,
-      "symbol": "TaskNode.description",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/TaskNode.swift",
-      "line": 70,
       "symbol": "==(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"

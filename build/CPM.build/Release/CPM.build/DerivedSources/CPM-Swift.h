@@ -182,15 +182,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
-/// A class that defines an activity.
+/// author:
+/// Tebin Raouf
+/// The class to represent a task in the Critical Path Application
 SWIFT_CLASS("_TtC3CPM8TaskNode")
 @interface TaskNode : NSObject
+/// The description of the task is the name of the task
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
-
-
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
