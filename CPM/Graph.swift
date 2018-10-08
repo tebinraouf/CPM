@@ -29,6 +29,12 @@ public class Graph: Equatable {
         }
         return nil
     }
+    public func addEdgePredecessor(_ source: TaskNode?, neighbor: TaskNode?) {
+        if let s = source, let n = neighbor  {
+            let edge = Edge(n)
+            s.predecessors.append(edge)
+        }
+    }
 }
 public func == (_ lhs: Graph, rhs: Graph) -> Bool {
     return lhs.tasks == rhs.tasks

@@ -10,7 +10,7 @@ import Foundation
  Assumptions
  1. First line is the header
  2. The input is comma separated
- 3. The input should be in the following format:
+ 3. The input should be in the following format order:
     TaskName,Duration,Predecessor
  4. If there are more than one predecessor, separate them with a comma such as
     B,2,C,D,E
@@ -66,7 +66,7 @@ class PathGenerator {
  3. Use 2 to set other E*, L*
  */
 
-let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input3.txt")
+let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input.txt")
 let graph = fileObject.getGraph()
 
 let pathGenarator = PathGenerator(graph)

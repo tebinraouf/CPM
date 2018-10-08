@@ -20,6 +20,7 @@ public class TaskNode: NSObject {
     var isVisitted: Bool
     
     var successors: [Edge]
+    var predecessors: [Edge]
     
     public var lateStart: Int? {
         didSet {
@@ -58,6 +59,7 @@ public class TaskNode: NSObject {
         self.name = name
         self.duration = duration
         successors = []
+        predecessors = []
         isVisitted = false
     }
     

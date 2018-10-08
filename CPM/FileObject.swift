@@ -27,10 +27,13 @@ class FileObject {
         //2. populate graph and return it
         return populateGraph()
     }
-    ///Populate the graph
+    ///Populate the graph in three steps
+    ///1. Create TaskNode for each task
+    ///2. Create Successors for each task
+    ///3. Create Predecessors for each task
     private func populateGraph() -> Graph {
         let graph = Graph()
-        //Create TaskNode per task and then add to graph.
+        //1. Create TaskNode per task and then add to graph.
         for row in rows {
             let taskName = row[0]
             let taskDuration = row[1]
@@ -38,7 +41,7 @@ class FileObject {
             graph.addTask(task)
         }
         let dictionary = convertRowToDictionary()
-        //for each task in the graph, add the successors
+        //2. for each task in the graph, add the successors
         for task in graph.tasks {
             //get the key value pair where the key is the task name, and the value is the successor
             for (key,value) in dictionary {
@@ -49,6 +52,14 @@ class FileObject {
                         graph.addEdge(task, neighbor: graph.getTask(by: key)!)
                     }
                 }
+            }
+        }
+        //3. add predecessors for each task
+        for (key,predecessors) in dictionary {
+            let currentTask = graph.getTask(by: key)
+            for predecessor in predecessors {
+                let predecessorTask = graph.getTask(by: predecessor)
+                graph.addEdgePredecessor(currentTask, neighbor: predecessorTask)
             }
         }
         return graph
