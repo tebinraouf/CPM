@@ -24,8 +24,9 @@ import Foundation
  3. Use 2 to set other E*, L*
  */
 
-let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input.txt")
+let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input2.txt")
 let graph = fileObject.getGraph()
 
 let path = Path(graph)
 print(path.generate())
+path.getCriticalPath()

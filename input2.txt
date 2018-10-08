@@ -1,3 +1,4 @@
+#Task,dur,preds
 A,3,na
 B,2,A
 C,1,A
@@ -9,3 +10,4 @@ H,1,B
 I,2,F,G,H,E
 J,1,I
 K,2,J
+L,1,K

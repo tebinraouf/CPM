@@ -34,6 +34,7 @@
 		43194F60216B02D80073EF04 /* input4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input4.txt; sourceTree = SOURCE_ROOT; };
 		43194F61216B32A70073EF04 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		43194F63216B34870073EF04 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		43194F64216B3C210073EF04 /* input2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input2.txt; sourceTree = SOURCE_ROOT; };
 		4320661F215EBE97000E4F04 /* CPM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPM; sourceTree = BUILT_PRODUCTS_DIR; };
 		43206622215EBE97000E4F04 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		43A0A86F21694EA00012D95F /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = SOURCE_ROOT; };
@@ -77,6 +78,7 @@
 				431946A52162C6E0007E3591 /* TaskNode.swift */,
 				43A0A86F21694EA00012D95F /* input.txt */,
 				43F75CF02169B762007F442F /* FileObject.swift */,
+				43194F64216B3C210073EF04 /* input2.txt */,
 				43F75CF22169C70A007F442F /* input3.txt */,
 				43194F60216B02D80073EF04 /* input4.txt */,
 				43194F61216B32A70073EF04 /* Path.swift */,

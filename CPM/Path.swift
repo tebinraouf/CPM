@@ -10,7 +10,7 @@ import Foundation
 
 /// - Author: Tebin Raouf
 ///
-///
+/// This class generates paths from a `Graph` object
 public class Path {
     ///A holder for all paths
     private var _allPaths = [[TaskNode]]()
@@ -81,7 +81,25 @@ public class Path {
         //pop the last item. Result is unused.
         let _ = _paths.popLast()
     }
-    
-    
-    
+}
+
+
+extension Path {
+    public func getCriticalPath() {
+        var dictionary = Dictionary<[TaskNode], Int>()
+        for path in paths {
+            dictionary[path] = path.duration
+        }
+        print(dictionary)
+    }
+}
+
+extension Sequence where Iterator.Element == TaskNode {
+    var duration: Int {
+        var totalDuration = 0
+        forEach { (task) in
+            totalDuration += task.duration
+        }
+        return totalDuration
+    }
 }
