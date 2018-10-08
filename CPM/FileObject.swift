@@ -49,7 +49,7 @@ class FileObject {
                 for eachValue in value {
                     if task.name! == eachValue {
                         //we don't know the neight use the key to get the name and find it in the graph
-                        graph.addEdge(task, neighbor: graph.getTask(by: key)!)
+                        graph.addSuccessorEdge(task, neighbor: graph.getTask(by: key)!)
                     }
                 }
             }
@@ -59,7 +59,7 @@ class FileObject {
             let currentTask = graph.getTask(by: key)
             for predecessor in predecessors {
                 let predecessorTask = graph.getTask(by: predecessor)
-                graph.addEdgePredecessor(currentTask, neighbor: predecessorTask)
+                graph.addPredecessorEdge(currentTask, neighbor: predecessorTask)
             }
         }
         return graph

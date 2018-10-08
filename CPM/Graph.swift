@@ -17,7 +17,7 @@ public class Graph: Equatable {
     public func addTask(_ task: TaskNode) {
         tasks.append(task)
     }
-    public func addEdge(_ source: TaskNode, neighbor: TaskNode) {
+    public func addSuccessorEdge(_ source: TaskNode, neighbor: TaskNode) {
         let edge = Edge(neighbor)
         source.successors.append(edge)
     }
@@ -29,7 +29,7 @@ public class Graph: Equatable {
         }
         return nil
     }
-    public func addEdgePredecessor(_ source: TaskNode?, neighbor: TaskNode?) {
+    public func addPredecessorEdge(_ source: TaskNode?, neighbor: TaskNode?) {
         if let s = source, let n = neighbor  {
             let edge = Edge(n)
             s.predecessors.append(edge)
