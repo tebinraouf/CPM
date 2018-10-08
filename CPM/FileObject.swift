@@ -1,30 +1,43 @@
-//
 //  FileObject.swift
 //  CPM
 //
 //  Created by Tebin on 10/6/18.
 //  Copyright © 2018 Tebin. All rights reserved.
-//
 
 import Foundation
+/// - Author: Tebin Raouf
+///
+///The class to parse a text file into objects and graph
+///
+///### Sample File (input.txt)
+/// ```
+/// #Task,dur,preds
+/// A,2,na
+/// B,3,A
+/// C,4,B
+/// D,2,B
+/// E,2,C,D
+/// F,2,E
+/// G,1,E
+/// H,5,A
+/// ```
 
-/**
- The class to parse a text file into objects and graph
- */
-class FileObject {
+public class FileObject {
     private var header: [String]
     private var rows: [[String]]
     private var filePath: String
     
-
+    /// FileObject Initializer
+    /// - Parameter filePath: the path of the text file
     public init(_ filePath: String) {
         self.filePath = filePath
         //initial values
         self.header = [String]()
         self.rows = [[String]]()
     }
-    ///Get the populated graph
-    func getGraph() -> Graph {
+    /// getGraph: get the populated graph
+    /// - Returns: Graph
+    public func getGraph() -> Graph {
         //1. Read the file
         read(file: self.filePath)
         //2. populate graph and return it
