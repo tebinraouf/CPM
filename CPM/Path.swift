@@ -83,14 +83,29 @@ public class Path {
     }
 }
 
-
+//Handle Critical Path
 extension Path {
-    public func getCriticalPath() {
-        var dictionary = Dictionary<[TaskNode], Int>()
+    public func getPathsWithDuration() -> Dictionary<Int, [[TaskNode]]>{
+        var dictionary = Dictionary<Int, [[TaskNode]]>()
         for path in paths {
-            dictionary[path] = path.duration
+            var pathsWithSameDuration = [[TaskNode]]()
+            if dictionary[path.duration] == nil {
+                pathsWithSameDuration.append(path)
+                dictionary[path.duration] = pathsWithSameDuration
+            } else {
+                var current = dictionary[path.duration]
+                current?.append(path)
+                dictionary[path.duration] = current!
+            }
         }
-        print(dictionary)
+        return dictionary
+    }
+    public func getCriticalPaths() -> Dictionary<Int, [[TaskNode]]> {
+        let groupPaths = getPathsWithDuration()
+        let key = groupPaths.keys.max()!
+        var criticalPaths = Dictionary<Int, [[TaskNode]]>()
+        criticalPaths[key] = groupPaths[key]
+        return criticalPaths
     }
 }
 

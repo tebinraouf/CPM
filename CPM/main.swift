@@ -29,4 +29,5 @@ let graph = fileObject.getGraph()
 
 let path = Path(graph)
 print(path.generate())
-path.getCriticalPath()
+print(path.getPathsWithDuration())
+print(path.getCriticalPaths())
