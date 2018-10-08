@@ -14,7 +14,7 @@
     <a title="Graph Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (71% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -70,7 +70,13 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Tebin Raouf
+
+</div>
+
+<p>The class to represent a graph</p>
 
           </section>
           <section class="section task-group-section">
@@ -89,7 +95,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>All the tasks in the graph</p>
 
                       </div>
                       <div class="declaration">
@@ -116,7 +122,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize an empty graph</p>
+
+<p><code><a href="../Classes/Graph.html#/s:3CPM5GraphC5tasksSayAA8TaskNodeCGvp">tasks</a></code> is empty</p>
 
                       </div>
                       <div class="declaration">
@@ -143,7 +151,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a task to the graph</p>
 
                       </div>
                       <div class="declaration">
@@ -153,6 +161,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">task</span><span class="p">:</span> <span class="kt"><a href="../Classes/TaskNode.html">TaskNode</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>task</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the task to be added</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
                       </div>
                     </section>
                   </div>
@@ -170,7 +201,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a successor task to the current (source) task. This method adds an <code><a href="../Classes/Edge.html">Edge</a></code> between the two tasks.</p>
 
                       </div>
                       <div class="declaration">
@@ -181,32 +212,40 @@
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3CPM5GraphC7getTask2byAA0D4NodeCSgSS_tF"></a>
-                    <a name="//apple_ref/swift/Method/getTask(by:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3CPM5GraphC7getTask2byAA0D4NodeCSgSS_tF">getTask(by:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the task in which a successor is added</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>neighbor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the successor task for the source task</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTask</span><span class="p">(</span><span class="n">by</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/TaskNode.html">TaskNode</a></span><span class="p">?</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
                       </div>
                     </section>
                   </div>
@@ -224,7 +263,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a predecessor task to the current (source) task. This method adds an <code><a href="../Classes/Edge.html">Edge</a></code> between the two tasks.</p>
 
                       </div>
                       <div class="declaration">
@@ -234,6 +273,91 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addPredecessorEdge</span><span class="p">(</span><span class="n">_</span> <span class="nv">source</span><span class="p">:</span> <span class="kt"><a href="../Classes/TaskNode.html">TaskNode</a></span><span class="p">?,</span> <span class="nv">neighbor</span><span class="p">:</span> <span class="kt"><a href="../Classes/TaskNode.html">TaskNode</a></span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the task in which a predecessor is added</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>neighbor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the predecessor task for the source task</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3CPM5GraphC7getTask2byAA0D4NodeCSgSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/getTask(by:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3CPM5GraphC7getTask2byAA0D4NodeCSgSS_tF">getTask(by:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a task object by its name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTask</span><span class="p">(</span><span class="n">by</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/TaskNode.html">TaskNode</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of the task</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a <code><a href="../Classes/TaskNode.html">TaskNode</a></code> object (if any)</p>
                       </div>
                     </section>
                   </div>
