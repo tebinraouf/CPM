@@ -27,14 +27,14 @@ class PathGenerator {
         if startTask != nil {
             getPaths(graph, source: startTask!)
         } else {
-            //This should be fixed. The first task might not be the start task
+            //TODO: This should be fixed. The first task might not be the start task
             getPaths(graph, source: graph.tasks.first!)
         }
     }
     public var paths: [[TaskNode]] {
         return _allPaths
     }
-    ///Search the graph by using Depth Search Algorithm to file all paths.
+    ///Search the graph by using Depth Search Algorithm to find all paths.
     private func getPaths(_ graph: Graph, source: TaskNode) {
         _paths.append(source)
         source.isVisitted = true

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ The class to parse a text file into objects and graph
+ */
 class FileObject {
     private var header: [String]
     private var rows: [[String]]
