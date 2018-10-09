@@ -10,7 +10,7 @@ import Foundation
 /// - Author: Tebin Raouf
 ///
 ///The class to link TaskNode objects together
-public class Edge: Equatable {
+public class Edge: NSObject {
     /// The TaskNode instance for each Edge
     public var neighbor: TaskNode
     
@@ -20,6 +20,13 @@ public class Edge: Equatable {
     public init(_ neighbor: TaskNode) {
         self.neighbor = neighbor
     }
+    
+    
+    ///The description of the Edge is the `neighbor` name
+    public override var description: String {
+        return neighbor.name
+    }
+    
 }
 ///Compare if two edges (edge objects) are equal
 ///
