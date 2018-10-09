@@ -45,6 +45,8 @@ public class Path {
     }
     
     ///Generate all paths and calculate all attributes
+    ///
+    /// - Returns: Void
     public func generate() {
         //1. Generate all paths without attributes. `paths` is populated
         initialPathsGenerator()
@@ -56,8 +58,8 @@ public class Path {
         calculateNoneCPAttributes()
     }
     
-    ///Generate paths from a graph
-    ///
+    ///Generate paths from a graph. `_allPaths` is updated
+    /// - Returns: Void
     private func initialPathsGenerator() {
         let startTask = graph.getTask(by: "Start")
         if startTask != nil {
@@ -199,10 +201,13 @@ extension Path {
         return dictionary
     }
 }
-
+///None Critical Path Extension
+///Calculate None Critical Path Tasks' Attributes
 extension Path {
+    ///Calculate Early Start (ES), Early Finish (EF), Late Start (LS), Late Finish (LF), and Slack for tasks on none critical paths
+    ///
+    /// - Returns: Void
     private func calculateNoneCPAttributes() {
-        
         //First: Calculate ES and EF for tasks with one predecessor
         calculateEarlyStartFinish { (task) in
             if task.predecessors.count == 1 {

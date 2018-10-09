@@ -52,8 +52,8 @@ public class TaskNode: NSObject {
     
     ///The description of the task is the name of the task
     public override var description: String {
-        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish) LS: \(lateStart) LF: \(lateFinish) Slack: \(slack)"
-//        return name
+//        return "\nName: \(name) ES: \(earlyStart) EF: \(earlyFinish) LS: \(lateStart) LF: \(lateFinish) Slack: \(slack) IsCritical: \(isOnCriticalPath)\n\n"
+        return name
 //        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish)"
     }
     
