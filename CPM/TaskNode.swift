@@ -52,9 +52,9 @@ public class TaskNode: NSObject {
     
     ///The description of the task is the name of the task
     public override var description: String {
-//        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish) LS: \(lateStart) LF: \(lateFinish) Slack: \(slack)"
+        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish) LS: \(lateStart) LF: \(lateFinish) Slack: \(slack)"
 //        return name
-        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish)"
+//        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish)"
     }
     
     ///Initialize a TaskNode
@@ -92,4 +92,15 @@ public class TaskNode: NSObject {
 /// - Returns: true if the two edges are equal; false otherwise
 public func == (_ lhs: TaskNode, rhs: TaskNode) -> Bool {
     return lhs.name == rhs.name && lhs.successors == rhs.successors && lhs.predecessors == rhs.predecessors
+}
+
+extension Sequence where Iterator.Element == TaskNode {
+    ///Get the total duration per a collection of `TaskNode`
+    var duration: Int {
+        var totalDuration = 0
+        forEach { (task) in
+            totalDuration += task.duration
+        }
+        return totalDuration
+    }
 }

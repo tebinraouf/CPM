@@ -225,10 +225,33 @@ extension Path {
             }
         }
         
+        //Third: Calculate LS and LF of last tasks on None Critical Paths. LF of a last task on a CP is the same as LF of last tasks on None CP.
+        let lastCPTask = (criticalPaths.first?.value.first?.last)!
+        let lateFinish = lastCPTask.lateFinish
+        calculateLateStartFinish { (task) in
+            //Last Bool check is unnecessary since in reverse order, the task has no successors.
+            if !task.isOnCriticalPath && !task.isLateSet && task.successors.count == 0 {
+                task.lateFinish = lateFinish
+                task.lateStart = task.lateFinish - task.duration + 1
+                task.slack = task.lateFinish - task.earlyFinish
+                task.isLateSet = true
+            }
+        }
         
+        //Fourth: Calculate LS and LF of any other tasks on None Critical Paths
+        calculateLateStartFinish { (task) in
+            //Last Bool check is unnecessary since it's always true
+            if !task.isOnCriticalPath && !task.isLateSet && task.successors.count > 0 {
+                let successorTask = (task.successors.first?.neighbor)!
+                task.lateFinish = successorTask.lateStart - 1
+                task.lateStart = task.lateFinish - task.duration + 1
+                task.slack = successorTask.earlyStart - task.earlyFinish - 1
+                task.isLateSet = true
+            }
+        }
     }
     
-    ///A utility function to loop through all none critical paths.
+    ///A utility function to loop through all none critical paths. `labeledPaths` property is updated.
     /// - parameter callback: a callback function to handle how tasks' ES and EF are calculated. It differs for tasks with one predecessor and tasks with more than one predecessor
     /// - Returns: Void
     private func calculateEarlyStartFinish(_ callback: (TaskNode)->()) {
@@ -243,29 +266,25 @@ extension Path {
                 }
             }
         }
-        print(_noneCPPaths)
+        //update values back
+        labeledPaths[PathType.None] = _noneCPPaths
     }
-}
-
-extension Sequence where Iterator.Element == TaskNode {
-
-    ///Get the total duration per a collection of `TaskNode`
-    var duration: Int {
-        var totalDuration = 0
-        forEach { (task) in
-            totalDuration += task.duration
+    
+    ///A utility function to loop though all none critical paths in reverse order. `labeledPaths` property is updated.
+    /// - parameter callback: a callback function to handle how tasks' LS and LF are calculated. It differs for tasks with no successors and tasks with successors.
+    /// - Returns: void
+    private func calculateLateStartFinish(_ callback: (TaskNode)->()) {
+        let _noneCPPaths = labeledPaths[PathType.None]!
+        for (_,_paths) in _noneCPPaths {
+            for _path in _paths {
+                for task in _path.reversed() {
+                    callback(task)
+                }
+            }
         }
-        return totalDuration
+        //update values back
+        labeledPaths[PathType.None] = _noneCPPaths
     }
+    
 }
 
-
-
-
-////the task has no successor, get the last task on the critical path
-//if task.successors.count == 0 {
-//    //                            //Force-Unwrap is okay because there is always a CP and a task on CP
-//    //                            let lastTaskCP = (criticalPaths.values.first!.first!.last)!
-//    //                            let lateStart = lastTaskCP.lateStart
-//    //
-//}
