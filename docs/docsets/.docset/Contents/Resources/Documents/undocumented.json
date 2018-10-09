@@ -22,6 +22,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/Tebin/Desktop/CPM/CPM/Helper.swift",
+      "line": 13,
+      "symbol": "PathType.Critical",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Tebin/Desktop/CPM/CPM/Helper.swift",
+      "line": 13,
+      "symbol": "PathType.None",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/Tebin/Desktop/CPM/CPM/main.swift",
       "line": 27,
       "symbol": "fileObject",

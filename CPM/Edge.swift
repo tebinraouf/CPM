@@ -13,6 +13,7 @@ import Foundation
 public class Edge: Equatable {
     /// The TaskNode instance for each Edge
     public var neighbor: TaskNode
+    
     /// Initialize an Edge
     ///
     /// - Parameter neighbor: the TasNode object that is a neighbor to a current task

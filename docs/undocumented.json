@@ -22,17 +22,17 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Path.swift",
-      "line": 88,
-      "symbol": "Path.getCriticalPath()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/Tebin/Desktop/CPM/CPM/Helper.swift",
+      "line": 13,
+      "symbol": "PathType.Critical",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Path.swift",
-      "line": 98,
-      "symbol": "Sequence.duration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/Tebin/Desktop/CPM/CPM/Helper.swift",
+      "line": 13,
+      "symbol": "PathType.None",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {

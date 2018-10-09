@@ -26,21 +26,27 @@ public class TaskNode: NSObject {
     ///The TaskNode predecessors
     public var predecessors: [Edge]
     
-    ///The TaskNode last start
-    public var lateStart: Int
-    
-    ///The TaskNode early start
+    ///The TaskNode early start (ES)
     public var earlyStart: Int
     
-    ///The TaskNode last finish
+    ///The TaskNode early finish (EF)
+    public var earlyFinish: Int
+
+    ///The TaskNode late start (LS)
+    public var lateStart: Int
+
+    ///The TaskNode last finish (LF)
     public var lateFinish: Int
     
-    ///The TaskNode early finish
-    public var earlyFinish: Int
+    ///The TaskNode slack
+    public var slack: Int
     
+    ///Indicate if a TaskNode is on a critical path
+    public var isOnCriticalPath: Bool
     
     ///The description of the task is the name of the task
     public override var description: String {
+//        return "Name: \(name) ES: \(earlyStart) EF: \(earlyFinish) LS: \(lateStart) LF: \(lateFinish) Slack: \(slack)"
         return name
     }
     
@@ -52,8 +58,8 @@ public class TaskNode: NSObject {
     ///####Initial Values include:
     ///1. `successors` = empty
     ///2. `predecessors` = empty
-    ///3. `isVisitted` = false
-    ///4.  `lateStart`, `lateFinish`, `earlyStart`, `earlyFinish` =  -1
+    ///3. `isVisitted`, `isOnCriticalPath` = false
+    ///4.  `lateStart`, `lateFinish`, `earlyStart`, `earlyFinish`, `slack` =  -1
     public init(name: String, duration: Int) {
         self.name = name
         self.duration = duration
@@ -64,6 +70,8 @@ public class TaskNode: NSObject {
         lateFinish = -1
         earlyStart = -1
         earlyFinish = -1
+        slack = -1
+        isOnCriticalPath = false
     }
 }
 ///Compare if two TaskNode (TaskNode objects) are equal

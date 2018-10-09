@@ -12,6 +12,7 @@
 		431946A62162C6E0007E3591 /* TaskNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431946A52162C6E0007E3591 /* TaskNode.swift */; };
 		43194F62216B32A70073EF04 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43194F61216B32A70073EF04 /* Path.swift */; };
 		43206623215EBE97000E4F04 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43206622215EBE97000E4F04 /* main.swift */; };
+		43E24F9C216C4A0C00F73CD2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E24F9B216C4A0C00F73CD2 /* Helper.swift */; };
 		43F75CF12169B762007F442F /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F75CF02169B762007F442F /* FileObject.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		4320661F215EBE97000E4F04 /* CPM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPM; sourceTree = BUILT_PRODUCTS_DIR; };
 		43206622215EBE97000E4F04 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		43A0A86F21694EA00012D95F /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = SOURCE_ROOT; };
+		43E24F9B216C4A0C00F73CD2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		43F75CF02169B762007F442F /* FileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileObject.swift; sourceTree = "<group>"; };
 		43F75CF22169C70A007F442F /* input3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input3.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				431946A52162C6E0007E3591 /* TaskNode.swift */,
 				43F75CF02169B762007F442F /* FileObject.swift */,
 				43194F61216B32A70073EF04 /* Path.swift */,
+				43E24F9B216C4A0C00F73CD2 /* Helper.swift */,
 				43A0A86F21694EA00012D95F /* input.txt */,
 				43194F64216B3C210073EF04 /* input2.txt */,
 				43F75CF22169C70A007F442F /* input3.txt */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				431946A22162C684007E3591 /* Graph.swift in Sources */,
+				43E24F9C216C4A0C00F73CD2 /* Helper.swift in Sources */,
 				43206623215EBE97000E4F04 /* main.swift in Sources */,
 				431946A62162C6E0007E3591 /* TaskNode.swift in Sources */,
 				431946A42162C6AE007E3591 /* Edge.swift in Sources */,

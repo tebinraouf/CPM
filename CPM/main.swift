@@ -28,6 +28,5 @@ let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input2.txt")
 let graph = fileObject.getGraph()
 
 let path = Path(graph)
-print(path.generate())
-print(path.getPathsWithDuration())
-print(path.getCriticalPaths())
+let _ = path.generate()
+print(path.criticalPaths)
