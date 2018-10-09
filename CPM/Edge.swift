@@ -29,3 +29,26 @@ public class Edge: Equatable {
 public func == (_ lhs: Edge, rhs: Edge) -> Bool {
     return lhs.neighbor == rhs.neighbor
 }
+
+extension Sequence where Iterator.Element == Edge {
+    
+    ///Get the largest early finish 
+    var largestEarlyFinish: Int {
+        var largest = 0
+        forEach { (edge) in
+            if edge.neighbor.earlyFinish > largest {
+                largest = edge.neighbor.earlyFinish
+            }
+        }
+        return largest
+    }
+    
+    var earlyFinish: Int {
+        var ef = 0
+        
+        forEach { (edge) in
+            ef = edge.neighbor.earlyFinish
+        }
+        return ef
+    }
+}

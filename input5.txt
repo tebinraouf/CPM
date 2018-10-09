@@ -1,0 +1,9 @@
+#Task,dur,preds
+A,3,na
+B,20,A
+C,3,A
+D,4,A
+E,7,A
+F,6,C,D,E
+N,1,A
+O,2,N

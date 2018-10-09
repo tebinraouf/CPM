@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// - Author: Tebin Raouf
+///
 ///An enum to represent a path. A path is either Critical or None
-enum PathType {
+public enum PathType {
     ///A critical path
     case Critical
     

@@ -26,6 +26,9 @@ public class Path {
         return _allPaths
     }
     
+    ///Labeled Paths - Critical and None Paths
+    public var labeledPaths = Dictionary<PathType, Dictionary<Int, [[TaskNode]]>>()
+    
     ///All critical paths. Task attributes are calculated
     public var criticalPaths = Dictionary<Int, [[TaskNode]]>()
     
@@ -43,13 +46,15 @@ public class Path {
     
     ///Generate all paths and calculate all attributes
     public func generate() {
-        //1. Generate all paths without attributes
+        //1. Generate all paths without attributes. `paths` is populated
         initialPathsGenerator()
-        //2. Calculate Critical Path tasks' attributes
-        //populate `criticalPaths`
+        //2. Isolate Paths into `PathType` (Critical or None). `labeledPaths` property is populated
+        isolatePaths()
+        //3. Calculate Critical Path tasks' attributes. `criticalPaths` property is populated. `labeledPaths` property is updated.
         calculateCPAttributes()
+        //4. Calculate None Critical Path tasks' attributes.
+        calculateNoneCPAttributes()
     }
-    
     
     ///Generate paths from a graph
     ///
@@ -63,7 +68,6 @@ public class Path {
             getPaths(graph, source: graph.tasks.first!)
         }
     }
-    
     
     ///Remove a task in a collection of paths of tasks
     ///
@@ -121,8 +125,7 @@ extension Path {
     ///
     /// - Returns: Void
     private func calculateCPAttributes() {
-        let isolated = isolatePaths()
-        let _criticalPath = isolated[PathType.Critical]!
+        let _criticalPath = labeledPaths[PathType.Critical]!
         //_ is the key which is the duration of the critical path
         for (_ ,cPaths) in _criticalPath {
             //early start
@@ -144,19 +147,24 @@ extension Path {
                     
                     //The task is on the CP
                     task.isOnCriticalPath = true
+                    
+                    //Set the isEarlySet and isLateSet for later use
+                    task.isEarlySet = true
+                    task.isLateSet = true
                 }
             }
         }
+        //Update labeled Paths
+        labeledPaths[PathType.Critical] = _criticalPath
+        //Store `criticalPath` separately
         criticalPaths = _criticalPath
     }
     
     /// This function isolates all the paths into `PathType`. Paths are either Critical or None
     ///
     /// - Returns: A key-value pair. Key is of type `PathType`. Value is a key-value pair. Key is the total duration of the path. Value is an array of paths.
-    private func isolatePaths() -> Dictionary<PathType, Dictionary<Int, [[TaskNode]]>> {
+    private func isolatePaths() {
         var mixedPaths = getPathsWithDuration()
-        
-        var labedPaths = Dictionary<PathType, Dictionary<Int, [[TaskNode]]>>()
         
         //Get Critical Paths
         let key = mixedPaths.keys.max()!
@@ -168,10 +176,8 @@ extension Path {
         mixedPaths.removeValue(forKey: key)
         let noneCriticalPaths = mixedPaths
         
-        labedPaths[PathType.Critical] = criticalPaths
-        labedPaths[PathType.None] = noneCriticalPaths
-        
-        return labedPaths
+        labeledPaths[PathType.Critical] = criticalPaths
+        labeledPaths[PathType.None] = noneCriticalPaths
     }
     
     /// This function calculates the total duration of each path
@@ -194,6 +200,53 @@ extension Path {
     }
 }
 
+extension Path {
+    private func calculateNoneCPAttributes() {
+        let _noneCPPaths = labeledPaths[PathType.None]!
+        
+        
+        //First Calculate only tasks with one predecessor
+        //_ is the key, which is the total duration for the path
+        for (_,_paths) in _noneCPPaths {
+            for _path in _paths {
+                for task in _path {
+                    if !task.isOnCriticalPath {
+                        //If there are more predecessors, then we need to skip it for later. We calculate ES and EF one level at a time
+                        if task.predecessors.count == 1 {
+                            //ES and EF
+                            let earlyFinish = task.predecessors.earlyFinish
+                            task.earlyStart = earlyFinish + 1
+                            task.earlyFinish = task.earlyStart + task.duration - 1
+                            task.isEarlySet = true
+                            print(task)
+                        }
+                    }
+                }
+            }
+        }
+        
+        //Calculate ES and EF for tasks with more than one predecessors
+        for (_,_paths) in _noneCPPaths {
+            for _path in _paths {
+                for task in _path {
+                    if !task.isOnCriticalPath {
+                        if task.predecessors.count > 1 && !task.isEarlySet {
+                            print(task)
+                            let earlyFinish = task.predecessors.largestEarlyFinish
+                            task.earlyStart = earlyFinish + 1
+                            task.earlyFinish = task.earlyStart + task.duration - 1
+                            task.isEarlySet = true
+                            print(task)
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+    }
+}
+
 extension Sequence where Iterator.Element == TaskNode {
 
     ///Get the total duration per a collection of `TaskNode`
@@ -205,3 +258,14 @@ extension Sequence where Iterator.Element == TaskNode {
         return totalDuration
     }
 }
+
+
+
+
+////the task has no successor, get the last task on the critical path
+//if task.successors.count == 0 {
+//    //                            //Force-Unwrap is okay because there is always a CP and a task on CP
+//    //                            let lastTaskCP = (criticalPaths.values.first!.first!.last)!
+//    //                            let lateStart = lastTaskCP.lateStart
+//    //
+//}

@@ -11,9 +11,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "main:main.swift">
-      </ContextState>
-      <ContextState
          contextName = "getPath(_:source:):main.swift">
          <PersistentStrings>
             <PersistentString
@@ -21,6 +18,17 @@
             </PersistentString>
             <PersistentString
                value = "allPaths">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:main.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Path.calculateNoneCPAttributes():Path.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "task.predecessors">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
