@@ -202,48 +202,48 @@ extension Path {
 
 extension Path {
     private func calculateNoneCPAttributes() {
+        
+        //First: Calculate ES and EF for tasks with one predecessor
+        calculateEarlyStartFinish { (task) in
+            if task.predecessors.count == 1 {
+                let earlyFinish = task.predecessors.earlyFinish
+                task.earlyStart = earlyFinish + 1
+                task.earlyFinish = task.earlyStart + task.duration - 1
+                task.isEarlySet = true
+                //print(task)
+            }
+        }
+
+        //Second: Calculate ES and EF for tasks with more than one predecessor
+        calculateEarlyStartFinish { (task) in
+            if task.predecessors.count > 1 && !task.isEarlySet {
+                let earlyFinish = task.predecessors.largestEarlyFinish
+                task.earlyStart = earlyFinish + 1
+                task.earlyFinish = task.earlyStart + task.duration - 1
+                task.isEarlySet = true
+                //print(task)
+            }
+        }
+        
+        
+    }
+    
+    ///A utility function to loop through all none critical paths.
+    /// - parameter callback: a callback function to handle how tasks' ES and EF are calculated. It differs for tasks with one predecessor and tasks with more than one predecessor
+    /// - Returns: Void
+    private func calculateEarlyStartFinish(_ callback: (TaskNode)->()) {
         let _noneCPPaths = labeledPaths[PathType.None]!
-        
-        
-        //First Calculate only tasks with one predecessor
         //_ is the key, which is the total duration for the path
         for (_,_paths) in _noneCPPaths {
             for _path in _paths {
                 for task in _path {
                     if !task.isOnCriticalPath {
-                        //If there are more predecessors, then we need to skip it for later. We calculate ES and EF one level at a time
-                        if task.predecessors.count == 1 {
-                            //ES and EF
-                            let earlyFinish = task.predecessors.earlyFinish
-                            task.earlyStart = earlyFinish + 1
-                            task.earlyFinish = task.earlyStart + task.duration - 1
-                            task.isEarlySet = true
-                            print(task)
-                        }
+                        callback(task)
                     }
                 }
             }
         }
-        
-        //Calculate ES and EF for tasks with more than one predecessors
-        for (_,_paths) in _noneCPPaths {
-            for _path in _paths {
-                for task in _path {
-                    if !task.isOnCriticalPath {
-                        if task.predecessors.count > 1 && !task.isEarlySet {
-                            print(task)
-                            let earlyFinish = task.predecessors.largestEarlyFinish
-                            task.earlyStart = earlyFinish + 1
-                            task.earlyFinish = task.earlyStart + task.duration - 1
-                            task.isEarlySet = true
-                            print(task)
-                        }
-                    }
-                }
-            }
-        }
-        
-        
+        print(_noneCPPaths)
     }
 }
 

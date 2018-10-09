@@ -42,10 +42,9 @@ extension Sequence where Iterator.Element == Edge {
         }
         return largest
     }
-    
+    ///Get the EF of the neighbor. It could be the predecessor or the successor
     var earlyFinish: Int {
         var ef = 0
-        
         forEach { (edge) in
             ef = edge.neighbor.earlyFinish
         }
