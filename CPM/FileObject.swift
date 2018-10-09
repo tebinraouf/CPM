@@ -24,8 +24,13 @@ import Foundation
 /// ```
 
 public class FileObject {
+    ///A holder for the input header
     private var header: [String]
+    
+    ///All rows of the input without the header
     private var rows: [[String]]
+    
+    ///The absolute path of the file
     private var filePath: String
     
     /// FileObject Initializer

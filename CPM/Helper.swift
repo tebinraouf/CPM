@@ -10,5 +10,9 @@ import Foundation
 
 ///An enum to represent a path. A path is either Critical or None
 enum PathType {
-    case Critical, None
+    ///A critical path
+    case Critical
+    
+    ///A none-critical path
+    case None
 }
