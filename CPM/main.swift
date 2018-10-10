@@ -7,15 +7,8 @@
 //
 import Foundation
 
-let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input2.txt")
-let graph = fileObject.getGraph()
 
-let path = Path(graph)
-path.generate()
-
-//print(path.criticalPaths)
-//print(path.labeledPaths)
-func view(type: PathType) {
+func view(_ path: Path, for type: PathType) {
     var pattern = String(repeating: "*", count: 150)
     print(pattern)
     print(pattern)
@@ -35,11 +28,12 @@ func view(type: PathType) {
         for path in paths {
             var view1 = "Path \(count) sequence is: "
             view1 += "["
+            
             for task in path {
                 view1 += task.name + ","
             }
             view1.removeLast()
-            view1 += "]. The following are the details of each task:"
+            view1 += "]. There \(path.isOrAre) \(path.count) task(s). The following are the details of each task:"
             print(view1)
             
             for task in path {
@@ -53,6 +47,13 @@ func view(type: PathType) {
     }
 }
 
-view(type: .Critical)
-view(type: .None)
+
+let fileObject = FileObject("/Users/Tebin/Desktop/CPM/input2.txt")
+let graph = fileObject.getGraph()
+
+let path = Path(graph)
+path.generate()
+
+view(path, for: .Critical)
+view(path, for: .None)
 

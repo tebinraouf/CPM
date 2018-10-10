@@ -104,3 +104,9 @@ extension Sequence where Iterator.Element == TaskNode {
         return totalDuration
     }
 }
+
+extension Array where Element: TaskNode {
+    var isOrAre: String {
+        return count > 1 ? "are" : "is"
+    }
+}
