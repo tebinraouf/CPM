@@ -105,8 +105,24 @@ extension Sequence where Iterator.Element == TaskNode {
     }
 }
 
-extension Array where Element: TaskNode {
+extension Array where Element == [TaskNode] {
+    ///Indicate is or are for [TaskNode]
     var isOrAre: String {
         return count > 1 ? "are" : "is"
     }
+    ///Indicate "s" or none for [TaskNode]
+    var sOrNone: String {
+        return count > 1 ? "s" : ""
+    }
 }
+extension Array where Element: TaskNode {
+    ///Indicate is or are
+    var isOrAre: String {
+        return count > 1 ? "are" : "is"
+    }
+    ///Indicate "s" or none
+    var sOrNone: String {
+        return count > 1 ? "s" : ""
+    }
+}
+
