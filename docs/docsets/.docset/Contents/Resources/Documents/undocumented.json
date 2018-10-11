@@ -1,33 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Path.swift",
-      "line": 204,
-      "symbol": "Path.calculateNoneCPAttributes()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/main.swift",
-      "line": 15,
-      "symbol": "fileObject",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/main.swift",
-      "line": 16,
-      "symbol": "graph",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/main.swift",
-      "line": 18,
-      "symbol": "path",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/Tebin/Desktop/CPM"
 }

@@ -59,3 +59,15 @@ func view(_ path: Path, for type: PathType) {
         }
     }
 }
+func summary(_ path: Path) {
+    var pattern = String(repeating: "*", count: 150)
+    print(pattern)
+    print(pattern)
+    print(pattern)
+    
+    pattern = String(repeating: "~", count: 30)
+    print("\(pattern) Project Summary \(pattern)")
+    let allPaths = (path.labeledPaths[PathType.Critical])!
+    
+    var projectDuration = (allPaths.first?.key)!
+}

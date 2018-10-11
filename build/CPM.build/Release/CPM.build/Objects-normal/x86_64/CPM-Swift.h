@@ -184,6 +184,18 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 /// author:
 /// Tebin Raouf
+/// The class to link TaskNode objects together
+SWIFT_CLASS("_TtC3CPM4Edge")
+@interface Edge : NSObject
+/// The description of the Edge is the <code>neighbor</code> name
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+/// author:
+/// Tebin Raouf
 /// The class to represent a task in the Critical Path Application
 SWIFT_CLASS("_TtC3CPM8TaskNode")
 @interface TaskNode : NSObject
