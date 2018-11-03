@@ -208,18 +208,8 @@ extension Path {
     ///
     /// - Returns: Void
     private func calculateNoneCPAttributes() {
-        //First: Calculate ES and EF for tasks with one predecessor
-        calculateEarlyStartFinish { (task) in
-            if task.predecessors.count == 1 {
-                let earlyFinish = task.predecessors.earlyFinish
-                task.earlyStart = earlyFinish + 1
-                task.earlyFinish = task.earlyStart + task.duration - 1
-                task.isEarlySet = true
-                //print(task)
-            }
-        }
 
-        //Second: Calculate ES and EF for tasks with more than one predecessor
+        //First: Calculate ES and EF for tasks with more than one predecessor
         calculateEarlyStartFinish { (task) in
             if task.predecessors.count > 1 && !task.isEarlySet {
                 let earlyFinish = task.predecessors.largestEarlyFinish
@@ -229,6 +219,18 @@ extension Path {
                 //print(task)
             }
         }
+        
+        //Second: Calculate ES and EF for tasks with one predecessor
+        calculateEarlyStartFinish { (task) in
+            if task.predecessors.count == 1 && !task.isEarlySet  {
+                let earlyFinish = task.predecessors.earlyFinish
+                task.earlyStart = earlyFinish + 1
+                task.earlyFinish = task.earlyStart + task.duration - 1
+                task.isEarlySet = true
+                //print(task)
+            }
+        }
+        
         
         //Third: Calculate LS and LF of last tasks on None Critical Paths. LF of a last task on a CP is the same as LF of last tasks on None CP.
         let lastCPTask = (criticalPaths.first?.value.first?.last)!
@@ -247,10 +249,10 @@ extension Path {
         calculateLateStartFinish { (task) in
             //Last Bool check is unnecessary since it's always true
             if !task.isOnCriticalPath && !task.isLateSet && task.successors.count > 0 {
-                let successorTask = (task.successors.first?.neighbor)!
-                task.lateFinish = successorTask.lateStart - 1
+                let lateFinish = task.successors.smallestLateStart
+                task.lateFinish = lateFinish - 1
                 task.lateStart = task.lateFinish - task.duration + 1
-                task.slack = successorTask.earlyStart - task.earlyFinish - 1
+                task.slack = lateFinish - task.earlyFinish - 1
                 task.isLateSet = true
             }
         }

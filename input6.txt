@@ -1,0 +1,5 @@
+#Task,dur,preds
+A,2,na
+B,1,A
+C,1,na
+D,2,C

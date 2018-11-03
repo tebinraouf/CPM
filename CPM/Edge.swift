@@ -49,6 +49,15 @@ extension Sequence where Iterator.Element == Edge {
         }
         return largest
     }
+    var smallestLateStart: Int {
+        var smallest = Int.max
+        forEach { (edge) in
+            if edge.neighbor.lateStart < smallest && edge.neighbor.isLateSet {
+                smallest = edge.neighbor.lateStart
+            }
+        }
+        return smallest
+    }
     ///Get the EF of the neighbor. It could be the predecessor or the successor
     var earlyFinish: Int {
         var ef = 0
