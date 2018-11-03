@@ -68,6 +68,14 @@ func summary(_ path: Path) {
     pattern = String(repeating: "~", count: 30)
     print("\(pattern) Project Summary \(pattern)")
     let allPaths = (path.labeledPaths[PathType.Critical])!
-    
-    var projectDuration = (allPaths.first?.key)!
+    let projectDuration = (allPaths.first?.key)!
+    print("Project Duration: \(projectDuration)")
+    print("All Critical Paths are: ")
+    var count = 1
+    for paths in allPaths {
+        for path in paths.value {
+            print("\(count). \(path)")
+            count = count + 1
+        }
+    }
 }
