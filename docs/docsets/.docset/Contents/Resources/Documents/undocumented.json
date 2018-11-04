@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Edge.swift",
-      "line": 52,
-      "symbol": "Sequence.smallestLateStart",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/Tebin/Desktop/CPM"
 }
