@@ -8,7 +8,7 @@
 import Foundation
 
 ///`FileObject` to parse the input into `TaskNode` objects
-let fileObject = FileObject("/Users/Tebin/Desktop/CPM/complex.txt")
+let fileObject = FileObject("/Users/Tebin/Desktop/CPM/inputs/complex.txt")
 ///`Graph` generated from `getGraph` method of `FileObject`
 let graph = fileObject.getGraph()
 ///`Path` to generate all paths in a `Graph`
