@@ -10,19 +10,6 @@ import Foundation
 ///
 ///The class to parse a text file into objects and graph
 ///
-///### Sample File (input.txt)
-/// ```
-/// #Task,dur,preds
-/// A,2,na
-/// B,3,A
-/// C,4,B
-/// D,2,B
-/// E,2,C,D
-/// F,2,E
-/// G,1,E
-/// H,5,A
-/// ```
-
 public class FileObject {
     ///A holder for the input header
     private var header: [String]

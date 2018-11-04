@@ -49,6 +49,7 @@ extension Sequence where Iterator.Element == Edge {
         }
         return largest
     }
+    ///Get the smallest late start
     var smallestLateStart: Int {
         var smallest = Int.max
         forEach { (edge) in

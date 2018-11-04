@@ -10,21 +10,11 @@ An application to find the Critical Path of a project
 
 
 
-### Samples
+### Examples
 
-1. [8-tasks example](sample8.md)
-
-#### Sample 01 Input
-```
-#Task,dur,preds
-A,2,na
-B,3,A
-C,4,B
-D,2,B
-E,2,C,D
-F,2,E
-G,1,E
-H,5,A
-```
-#### Sample 01 Output
+1. [Basic](basic.html)
+2. [Basic - Two Starting Tasks](basic---two-starting-tasks.html)
+3. [10 Tasks](10-tasks.html)
+4. [26 Tasks](26-tasks.html)
+5. [50 Tasks](complex-task.html)
 

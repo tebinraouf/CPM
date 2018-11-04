@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic - Two Starting Tasks  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Basic - Two Starting Tasks  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/tebinraouf"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Basic - Two Starting Tasks  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="10-tasks.html">10 Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="26-tasks.html">26 Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="basic.html">Basic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="basic---two-starting-tasks.html">Basic - Two Starting Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="complex-task.html">Complex Task</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Edge.html">Edge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FileObject.html">FileObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Graph.html">Graph</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Path.html">Path</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TaskNode.html">TaskNode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM10fileObjectAA04FileC0Cvp">fileObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM5graphAA5GraphCvp">graph</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM4pathAA4PathCvp">path</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PathType.html">PathType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Sequence.html">Sequence</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA4EdgeC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA5GraphC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA8TaskNodeC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM7summaryyyAA4PathCF">summary(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM4view_3foryAA4PathC_AA0D4TypeOtF">view(_:for:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='2-starting-tasks' class='heading'>2 Starting Tasks</h1>
+<h4 id='input' class='heading'>Input</h4>
+<pre class="highlight plaintext"><code>#Task,dur,preds
+A,30,na
+B,10,na
+C,20,B
+</code></pre>
+<h4 id='output' class='heading'>Output</h4>
+<pre class="highlight plaintext"><code>["#TASK,DUR,PREDS", "A,30,Start", "B,10,Start", "C,20,B", "Start,0,NA"]
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Critical Paths &amp; Tasks on Each Path ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========There are 2 paths with a total duration of 30. Here are the details:==========
+Path 1 sequence is: [B,C]. There are 2 tasks. The following are the details of each task:
+
+Name: B =&gt; ES: 1 EF: 10 LS: 1 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [Start] Successors: [C]
+
+Name: C =&gt; ES: 11 EF: 30 LS: 11 LF: 30 Slack: 0 Is On Critical Path: true Predecessors: [B] Successors: []
+----------------------------------------------------------------------------------------------------
+Path 2 sequence is: [A]. There is 1 task. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 30 LS: 1 LF: 30 Slack: 0 Is On Critical Path: true Predecessors: [Start] Successors: []
+----------------------------------------------------------------------------------------------------
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ None Critical Paths &amp; Tasks on Each Path ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Project Summary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project Duration: 30
+All Critical Paths are: 
+1. [B, C]
+2. [A]
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Tebin</a>. All rights reserved. (Last updated: 2018-11-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

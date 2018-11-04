@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>10 Tasks  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="10 Tasks  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/tebinraouf"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+        10 Tasks  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="10-tasks.html">10 Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="26-tasks.html">26 Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="basic.html">Basic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="basic---two-starting-tasks.html">Basic - Two Starting Tasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="complex-task.html">Complex Task</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Edge.html">Edge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FileObject.html">FileObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Graph.html">Graph</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Path.html">Path</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TaskNode.html">TaskNode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM10fileObjectAA04FileC0Cvp">fileObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM5graphAA5GraphCvp">graph</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:3CPM4pathAA4PathCvp">path</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PathType.html">PathType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Sequence.html">Sequence</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA4EdgeC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA5GraphC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM2eeoiySbAA8TaskNodeC_ADtF">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM7summaryyyAA4PathCF">summary(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:3CPM4view_3foryAA4PathC_AA0D4TypeOtF">view(_:for:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='10-tasks' class='heading'>10 Tasks</h1>
+<h4 id='input' class='heading'>Input</h4>
+<pre class="highlight plaintext"><code>#Task,dur,preds
+A,3,na
+B,2,A
+C,1,A
+D,1,A
+E,3,A
+F,1,B
+G,2,B
+H,1,B
+I,2,D,F,G,H,E
+J,1,I
+K,2,J
+L,1,K
+</code></pre>
+<h4 id='output' class='heading'>Output</h4>
+<pre class="highlight plaintext"><code>["#Task,dur,preds", "A,3,na", "B,2,A", "C,1,A", "D,1,A", "E,3,A", "F,1,B", "G,2,B", "H,1,B", "I,2,D,F,G,H,E", "J,1,I", "K,2,J", "L,1,K"]
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Critical Paths &amp; Tasks on Each Path ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========There is 1 path with a total duration of 13. Here are the details:==========
+Path 1 sequence is: [A,B,G,I,J,K,L]. There are 7 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: B =&gt; ES: 4 EF: 5 LS: 4 LF: 5 Slack: 0 Is On Critical Path: true Predecessors: [A] Successors: [G, H, F]
+
+Name: G =&gt; ES: 6 EF: 7 LS: 6 LF: 7 Slack: 0 Is On Critical Path: true Predecessors: [B] Successors: [I]
+
+Name: I =&gt; ES: 8 EF: 9 LS: 8 LF: 9 Slack: 0 Is On Critical Path: true Predecessors: [D, F, G, H, E] Successors: [J]
+
+Name: J =&gt; ES: 10 EF: 10 LS: 10 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [I] Successors: [K]
+
+Name: K =&gt; ES: 11 EF: 12 LS: 11 LF: 12 Slack: 0 Is On Critical Path: true Predecessors: [J] Successors: [L]
+
+Name: L =&gt; ES: 13 EF: 13 LS: 13 LF: 13 Slack: 0 Is On Critical Path: true Predecessors: [K] Successors: []
+----------------------------------------------------------------------------------------------------
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ None Critical Paths &amp; Tasks on Each Path ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========There is 1 path with a total duration of 10. Here are the details:==========
+Path 1 sequence is: [A,D,I,J,K,L]. There are 6 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: D =&gt; ES: 4 EF: 4 LS: 7 LF: 7 Slack: 3 Is On Critical Path: false Predecessors: [A] Successors: [I]
+
+Name: I =&gt; ES: 8 EF: 9 LS: 8 LF: 9 Slack: 0 Is On Critical Path: true Predecessors: [D, F, G, H, E] Successors: [J]
+
+Name: J =&gt; ES: 10 EF: 10 LS: 10 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [I] Successors: [K]
+
+Name: K =&gt; ES: 11 EF: 12 LS: 11 LF: 12 Slack: 0 Is On Critical Path: true Predecessors: [J] Successors: [L]
+
+Name: L =&gt; ES: 13 EF: 13 LS: 13 LF: 13 Slack: 0 Is On Critical Path: true Predecessors: [K] Successors: []
+----------------------------------------------------------------------------------------------------
+==========There is 1 path with a total duration of 4. Here are the details:==========
+Path 1 sequence is: [A,C]. There are 2 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: C =&gt; ES: 4 EF: 4 LS: 13 LF: 13 Slack: 9 Is On Critical Path: false Predecessors: [A] Successors: []
+----------------------------------------------------------------------------------------------------
+==========There are 3 paths with a total duration of 12. Here are the details:==========
+Path 1 sequence is: [A,B,H,I,J,K,L]. There are 7 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: B =&gt; ES: 4 EF: 5 LS: 4 LF: 5 Slack: 0 Is On Critical Path: true Predecessors: [A] Successors: [G, H, F]
+
+Name: H =&gt; ES: 6 EF: 6 LS: 7 LF: 7 Slack: 1 Is On Critical Path: false Predecessors: [B] Successors: [I]
+
+Name: I =&gt; ES: 8 EF: 9 LS: 8 LF: 9 Slack: 0 Is On Critical Path: true Predecessors: [D, F, G, H, E] Successors: [J]
+
+Name: J =&gt; ES: 10 EF: 10 LS: 10 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [I] Successors: [K]
+
+Name: K =&gt; ES: 11 EF: 12 LS: 11 LF: 12 Slack: 0 Is On Critical Path: true Predecessors: [J] Successors: [L]
+
+Name: L =&gt; ES: 13 EF: 13 LS: 13 LF: 13 Slack: 0 Is On Critical Path: true Predecessors: [K] Successors: []
+----------------------------------------------------------------------------------------------------
+Path 2 sequence is: [A,B,F,I,J,K,L]. There are 7 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: B =&gt; ES: 4 EF: 5 LS: 4 LF: 5 Slack: 0 Is On Critical Path: true Predecessors: [A] Successors: [G, H, F]
+
+Name: F =&gt; ES: 6 EF: 6 LS: 7 LF: 7 Slack: 1 Is On Critical Path: false Predecessors: [B] Successors: [I]
+
+Name: I =&gt; ES: 8 EF: 9 LS: 8 LF: 9 Slack: 0 Is On Critical Path: true Predecessors: [D, F, G, H, E] Successors: [J]
+
+Name: J =&gt; ES: 10 EF: 10 LS: 10 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [I] Successors: [K]
+
+Name: K =&gt; ES: 11 EF: 12 LS: 11 LF: 12 Slack: 0 Is On Critical Path: true Predecessors: [J] Successors: [L]
+
+Name: L =&gt; ES: 13 EF: 13 LS: 13 LF: 13 Slack: 0 Is On Critical Path: true Predecessors: [K] Successors: []
+----------------------------------------------------------------------------------------------------
+Path 3 sequence is: [A,E,I,J,K,L]. There are 6 tasks. The following are the details of each task:
+
+Name: A =&gt; ES: 1 EF: 3 LS: 1 LF: 3 Slack: 0 Is On Critical Path: true Predecessors: [] Successors: [C, B, D, E]
+
+Name: E =&gt; ES: 4 EF: 6 LS: 5 LF: 7 Slack: 1 Is On Critical Path: false Predecessors: [A] Successors: [I]
+
+Name: I =&gt; ES: 8 EF: 9 LS: 8 LF: 9 Slack: 0 Is On Critical Path: true Predecessors: [D, F, G, H, E] Successors: [J]
+
+Name: J =&gt; ES: 10 EF: 10 LS: 10 LF: 10 Slack: 0 Is On Critical Path: true Predecessors: [I] Successors: [K]
+
+Name: K =&gt; ES: 11 EF: 12 LS: 11 LF: 12 Slack: 0 Is On Critical Path: true Predecessors: [J] Successors: [L]
+
+Name: L =&gt; ES: 13 EF: 13 LS: 13 LF: 13 Slack: 0 Is On Critical Path: true Predecessors: [K] Successors: []
+----------------------------------------------------------------------------------------------------
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+******************************************************************************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Project Summary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project Duration: 13
+All Critical Paths are: 
+1. [A, B, G, I, J, K, L]
+
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Tebin</a>. All rights reserved. (Last updated: 2018-11-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

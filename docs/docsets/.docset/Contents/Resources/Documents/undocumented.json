@@ -6,13 +6,6 @@
       "symbol": "Sequence.smallestLateStart",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Tebin/Desktop/CPM/CPM/Helper.swift",
-      "line": 62,
-      "symbol": "summary(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.free",
-      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/Tebin/Desktop/CPM"

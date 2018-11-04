@@ -59,6 +59,9 @@ func view(_ path: Path, for type: PathType) {
         }
     }
 }
+///A utility function to show the summary.
+///
+/// - parameter path: a `Path` object
 func summary(_ path: Path) {
     var pattern = String(repeating: "*", count: 150)
     print(pattern)

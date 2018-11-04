@@ -42,7 +42,6 @@
 		43B7AC4921769C560013E9E9 /* input6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input6.txt; sourceTree = SOURCE_ROOT; };
 		43DB0CE4218E0914005ACDBB /* complex.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = complex.txt; sourceTree = SOURCE_ROOT; };
 		43DB0CE5218E3AD9005ACDBB /* veryComplex.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = veryComplex.txt; sourceTree = SOURCE_ROOT; };
-		43DB0CE6218E3DFA005ACDBB /* sample8.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = sample8.md; sourceTree = "<group>"; };
 		43E24F9B216C4A0C00F73CD2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		43E24F9D216C681D00F73CD2 /* input5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input5.txt; sourceTree = SOURCE_ROOT; };
 		43F75CF02169B762007F442F /* FileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileObject.swift; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 				43DB0CE4218E0914005ACDBB /* complex.txt */,
 				43DB0CE5218E3AD9005ACDBB /* veryComplex.txt */,
 				43194F63216B34870073EF04 /* README.md */,
-				43DB0CE6218E3DFA005ACDBB /* sample8.md */,
 			);
 			path = CPM;
 			sourceTree = "<group>";
